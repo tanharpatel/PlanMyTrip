@@ -1,0 +1,672 @@
+{
+  "trips": [
+    {
+      "startLocation": {
+        "description": "Sasan Gir, Gujarat",
+        "type": "Point",
+        "coordinates": [
+          21.25283454957868,
+          70.57936223959892
+        ],
+        "address": "Sasan Gir"
+      },
+      "ratingsAverage": 5,
+      "ratingsQuantity": 9,
+      "images": [
+        "sasan1.jpg",
+        "sasan2.jpg",
+        "sasan3.jpg"
+      ],
+      "startDates": [
+        "2021-04-29T09:00:00.000Z",
+        "2021-07-15T09:00:00.000Z",
+        "2021-10-02T09:00:00.000Z"
+      ],
+      "name": "Pilgrimage & Wildlife",
+      "duration": 5,
+      "maxGroupSize": 25,
+      "guides": [
+        "5c8a21d02f8fb814b56fa189",
+        "5c8a201e2f8fb814b56fa186",
+        "5c8a1f292f8fb814b56fa184"
+      ],
+      "price": 5000,
+      "summary": "Relaxing and adventourous vacation in Gir National Park",
+      "description": "Are you looking for Sasan Gir packages from Ahmedabad? Look no further, because PlanMyTrip’s Sasan Gir holiday packages are the right choice for you. At PlanMyTrip you will find a wide range of customizable Sasan Gir tour packages to suit every kind of traveller from Ahmedabad. Be it an adventure trip, a relaxed holiday in Sasan Gir, a road-trip with friends, or a romantic getaway with your significant ones. ",
+      "imageCover": "sasancover.jpg",
+      "locations": [
+        {
+          "_id": "5c88fa8cf4afda39709c2954",
+          "description": "Departure from Ahmedabad",
+          "type": "Point",
+          "coordinates": [
+            23.121531746733094,
+            72.54213752422815
+          ],
+          "day": 1
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2953",
+          "description": "Somnath",
+          "type": "Point",
+          "coordinates": [
+            20.906374710530315,
+            70.38435000510316
+          ],
+          "day": 2
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2954",
+          "description": "Sasan Gir",
+          "type": "Point",
+          "coordinates": [
+            21.25283454957868,
+            70.57936223959892
+          ],
+          "day": 3
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2952",
+          "description": "Sasan Gir",
+          "type": "Point",
+          "coordinates": [
+            21.25283454957868,
+            70.57936223959892
+          ],
+          "day": 4
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2952",
+          "description": "Arrival at Ahmedabad",
+          "type": "Point",
+          "coordinates": [
+            23.121531746733094,
+            72.54213752422815
+          ],
+          "day": 5
+        }
+      ]
+    },
+    {
+      "startLocation": {
+        "description": "Kutch, Gujarat",
+        "type": "Point",
+        "coordinates": [
+          23.774817188796018,
+          69.8668950760625
+        ],
+        "address": "Kutch"
+      },
+      "ratingsAverage": 4.5,
+      "ratingsQuantity": 6,
+      "images": [
+        "kutch1.jpg",
+        "kutch2.jpg",
+        "kutch3.jpg"
+      ],
+      "startDates": [
+        "2022-01-05T10:00:00.000Z",
+        "2022-02-12T10:00:00.000Z",
+        "2023-01-06T10:00:00.000Z"
+      ],
+      "name": "The Beating Heart of the Indus Valley Civilization",
+      "duration": 9,
+      "maxGroupSize": 10,
+      "guides": [
+        "5c8a21d02f8fb814b56fa189",
+        "5c8a23412f8fb814b56fa18c",
+        "5c8a1f4e2f8fb814b56fa185"
+      ],
+      "price": 12000,
+      "summary": "Time Travel to Indus Valley Civilization",
+      "description": "If you are looking for a memorable Kutch trip, PlanMyTrip holiday packages are the right choice for you. PlanMyTrip offers the widest range of customizable Kutch tour to suit every kind of traveler. Be it a short trip or a long itinerary, a relaxing stay or an adventure holiday, whatever your travel preference, PlanMyTrip has the right Kutch vacation tours for you to choose from.",
+      "imageCover": "kutchcover.jpg",
+      "locations": [
+        {
+          "_id": "5c88fa8cf4afda39709c295c",
+          "description": "Departure from Rajkot",
+          "type": "Point",
+          "coordinates": [
+            22.314535892124095,
+            70.79723561485278
+          ],
+          "day": 1
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Kutch",
+          "type": "Point",
+          "coordinates": [
+            23.774817188796018,
+            69.8668950760625
+          ],
+          "day": 2
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Kutch",
+          "type": "Point",
+          "coordinates": [
+            23.774817188796018,
+            69.8668950760625
+          ],
+          "day": 3
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Dholavira",
+          "type": "Point",
+          "coordinates": [
+            23.894683142611985,
+            70.2120739661388
+          ],
+          "day": 4
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Dholavira to Bhuj",
+          "type": "Point",
+          "coordinates": [
+            23.24412874680335,
+            69.66471787619459
+          ],
+          "day": 5
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Bhuj",
+          "type": "Point",
+          "coordinates": [
+            23.24412874680335,
+            69.66471787619459
+          ],
+          "day": 6
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Mandvi",
+          "type": "Point",
+          "coordinates": [
+            22.845589718639044,
+            69.35338853282174
+          ],
+          "day": 7
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Mandvi to Rajkot",
+          "type": "Point",
+          "coordinates": [
+            22.314535892124095,
+            70.79723561485278
+          ],
+          "day": 8
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Rajkot",
+          "type": "Point",
+          "coordinates": [
+            22.314535892124095,
+            70.79723561485278
+          ],
+          "day": 9
+        }
+      ]
+    },
+    {
+      "startLocation": {
+        "description": "Delhi",
+        "type": "Point",
+        "coordinates": [
+          28.569731598520555,
+          77.09888657187365
+        ],
+        "address": "Shimla-Manali"
+      },
+      "ratingsAverage": 4.5,
+      "ratingsQuantity": 6,
+      "images": [
+        "shimlamanali1.jpg",
+        "shimlamanali2.jpg",
+        "shimlamanali3.jpg"
+      ],
+      "startDates": [
+        "2022-05-01T10:00:00.000Z",
+        "2022-02-12T10:00:00.000Z",
+        "2023-01-06T10:00:00.000Z"
+      ],
+      "name": "Shimla -Manali",
+      "duration": 9,
+      "maxGroupSize": 10,
+      "guides": [
+        "5c8a21d02f8fb814b56fa189",
+        "5c8a23412f8fb814b56fa18c",
+        "5c8a1f4e2f8fb814b56fa185"
+      ],
+      "price": 12000,
+      "summary": "Time Travel to Indus Valley Civilization",
+      "description": "If you are looking for a memorable Shimla-Manali trip, PlanMyTrip holiday packages are the right choice for you. PlanMyTrip offers the widest range of customizable tour to suit every kind of traveler. Be it a short trip or a long itinerary, a relaxing stay or an adventure holiday, whatever your travel preference, PlanMyTrip has the right Himachal vacation tours for you to choose from.",
+      "imageCover": "shimlamanalicover.jpg",
+      "locations": [
+        {
+          "_id": "5c88fa8cf4afda39709c295c",
+          "description": "Arrive at Chandigarh Airport",
+          "type": "Point",
+          "coordinates": [
+            30.751144226175672,
+            76.78172268384475
+          ],
+          "day": 1
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Visit Sukhana Lake, Rose Garden, Rock Garden. Later proceed to Shimla. En-route visit Pinjore Garden. Arrive in Shimla in the evening.",
+          "type": "Point",
+          "coordinates": [
+            30.74514693907298,
+            76.81047186631778
+          ],
+          "day": 2
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Visit Kufri Fun Campus. Later visit Kufri - Winter Sports Capital, Indira Bungalow and Himalayan Zoo. In the evening visit the famous Mall road, Scandal Point and Shimla Church.",
+          "type": "Point",
+          "coordinates": [
+            31.094374138756294,
+            77.27800608167122
+          ],
+          "day": 3
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Proceed to Manali. En-route pass by Pandoh Dam, Beas river, Sutlaj river, Beas Sutlaj Link Project, Kullu Valley. Visit Shawl Factory at Kullu. Arrive at Manali in the evening.",
+          "type": "Point",
+          "coordinates": [
+            31.67416287453003,
+            77.04478145044786
+          ],
+          "day": 4
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "In the morning explore the ancient temples like Jagatsukh Gayatri Mandir, Vashista Kund, Hidimba Mandir . Then proceed to Solang Valley - A splendid valley between Solang village and Beas Kund which offers the view of glaciers and snow capped mountains and peaks which has fine ski slopes. Enjoy rope way ride.",
+          "type": "Point",
+          "coordinates": [
+            32.19865004355577,
+            77.20245647561771
+          ],
+          "day": 5
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Enjoy spectacular drive towards Rohtang snow point. Free time to play and enjoy in the snow. In the evening enjoy Himachali Folk dance.",
+          "type": "Point",
+          "coordinates": [
+            32.22605736580843,
+            77.18791338122496
+          ],
+          "day": 6
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Enjoy water rafting in Beas river. Free day for shopping or leisure activities. Enjoy get together with your travel companions in the evening.",
+          "type": "Point",
+          "coordinates": [
+            31.99974272661071,
+            76.4413544012385
+          ],
+          "day": 7
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Proceed to Chandigarh. Arrive at Chandigarh in the evening.",
+          "type": "Point",
+          "coordinates": [
+            30.751144226175672,
+            76.78172268384475
+          ],
+          "day": 8
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Proceed to Chandigarh airport Board the flight for delhi. Tour Concludes.",
+          "type": "Point",
+          "coordinates": [
+            22.314535892124095,
+            70.79723561485278
+          ],
+          "day": 9
+        }
+      ]
+    },
+    {
+      "startLocation": {
+        "description": "North-Eastern paradise - Sikkim",
+        "type": "Point",
+        "coordinates": [
+          27.5330,
+          88.5122
+        ],
+        "address": "Sikkim"
+      },
+      "ratingsAverage": 4.8,
+      "ratingsQuantity": 9,
+      "images": [
+        "tour-2-1.jpg",
+        "tour-2-2.jpg",
+        "tour-2-3.jpg"
+      ],
+      "startDates": [
+        "2021-06-19T09:00:00.000Z",
+        "2021-07-20T09:00:00.000Z",
+        "2021-08-18T09:00:00.000Z"
+      ],
+      "name": "Hills and Mountains",
+      "duration": 7,
+      "maxGroupSize": 10,
+      "guides": [
+        "5c8a22c62f8fb814b56fa18b",
+        "5c8a1f4e2f8fb814b56fa185"
+      ],
+      "price": 12000,
+      "summary": "Experience natural beauty and closeness to heaven with this trip",
+      "description": " Are you looking for Sikkim packages from Ahmedabad? Look no further, because PlanMyTripâ€™s has all planned for you. We have a wide range of customizable Sikkim tour packages to suit every kind of traveller from Ahmedabad. Be it a relaxed holiday in woods or a hiking adventure with friends, you will love all of it with us.",
+      "imageCover": "tour-2-cover.jpg",
+      "locations": [
+        {
+          "_id": "5c88fa8cf4afda39709c2959",
+          "description": "Departure from Ahmedabad and reaching Pelling",
+          "type": "Point",
+          "coordinates": [
+            23.121531746733094,
+            72.54213752422815
+          ],
+          "day": 1
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2958",
+          "description": "Sightseeing in Pelling and reaching Gangtok",
+          "type": "Point",
+          "coordinates": [
+            27.3198,
+            88.2400
+          ],
+          "day": 2
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2957",
+          "description": "Sightseeing in Gangtok and visiting Baba Harbhajan Singh Temple, Nathula pass and Indo China border",
+          "type": "Point",
+          "coordinates": [
+            27.3866,
+            88.8309
+          ],
+          "day": 3
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2956",
+          "description": "Reaching Lachung and local sightseeing",
+          "type": "Point",
+          "coordinates": [
+            27.6891,
+            88.7430
+          ],
+          "day": 5
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2957",
+          "description": "Visiting zero point and back to Gangtok",
+          "type": "Point",
+          "coordinates": [
+            27.9305,
+            88.7346
+          ],
+          "day": 6
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2957",
+          "description": "Arrival at Ahemdabad",
+          "type": "Point",
+          "coordinates": [
+            23.121531746733094,
+            72.54213752422815
+          ],
+          "day": 7
+        }
+      ]
+    },
+    {
+      "startLocation": {
+        "description": "Pune",
+        "type": "Point",
+        "coordinates": [
+          18.516726,
+          73.856255
+        ],
+        "address": "Goa"
+      },
+      "ratingsAverage": 4.8,
+      "ratingsQuantity": 6,
+      "images": [
+        "tour-2-1.jpg",
+        "tour-2-2.jpg",
+        "tour-2-3.jpg"
+      ],
+      "startDates": [
+        "2021-06-19T09:00:00.000Z",
+        "2021-07-20T09:00:00.000Z",
+        "2021-08-18T09:00:00.000Z"
+      ],
+      "name": "Goa",
+      "duration": 4,
+      "maxGroupSize": 15,
+      "guides": [
+        "5c8a22c62f8fb814b56fa18b",
+        "5c8a1f4e2f8fb814b56fa185"
+      ],
+      "price": 10000,
+      "summary": " One of the most favorite destination among Indian tourists due to its pristine beaches",
+      "description": "Goa is definitely the best tourist place for India. The pearl of the east, Goa is known for its Gothic churches, crumbling forts, palm-fringed beaches, coconut groves, ferry rides, bubbly folk music… the list is endless! With its 131-km-long coastline, Goa is an important locale in every tourist's itinerary. Sun, sand and sea being the major attractions, Goa trip is a perfect heaven for the ones who need and want relaxation. Goa Beach Resorts always add to the fun. Christian Pilgrimage tours to Goa are extremely popular. Besides pilgrimages Goa is famous for honeymoons also.Goa, Honeymoon Packages are extremely popular with Indians. Goa, honeymoon packages cater to the needs of the tourists with varying budgets. The all-inclusive Goa, honeymoon packages tour too make interesting options",
+      "imageCover": "tour-2-cover.jpg",
+      "locations": [
+        {
+          "_id": "5c88fa8cf4afda39709c2959",
+          "description": "Baga Beach",
+          "type": "Point",
+          "coordinates": [
+            15.5647028,
+            73.7454067
+          ],
+          "day": 1
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2958",
+          "description": "Calangute Beach",
+          "type": "Point",
+          "coordinates": [
+            15.5468349,
+            73.7361799
+          ],
+          "day": 2
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2957",
+          "description": "Immaculate Conception Church",
+          "type": "Point",
+          "coordinates": [
+            15.4986628,
+            73.8292705
+          ],
+          "day": 3
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2956",
+          "description": "st francis xavier church",
+          "type": "Point",
+          "coordinates": [
+            15.3517193,
+            74.0042335
+          ],
+          "day": 3
+        }
+      ]
+    },
+    {
+      "startLocation": {
+        "description": "Chandigarh",
+        "type": "Point",
+        "coordinates": [
+          30.7350626,
+          76.6934879
+        ],
+        "address": "Sector 78, Sahibzada Ajit Singh Nagar, Punjab 140308"
+      },
+      "ratingsAverage": 5,
+      "ratingsQuantity": 9,
+      "images": [
+        "tour-1-1.jpg",
+        "tour-1-2.jpg",
+        "tour-1-3.jpg"
+      ],
+      "startDates": [
+        "2021-04-25T09:00:00.000Z",
+        "2021-07-20T09:00:00.000Z",
+        "2021-10-05T09:00:00.000Z"
+      ],
+      "name": "Leh-Ladakh",
+      "duration": 7,
+      "maxGroupSize": 25,
+      "guides": [
+        "5c8a21d02f8fb814b56fa189",
+        "5c8a201e2f8fb814b56fa186",
+        "5c8a1f292f8fb814b56fa184"
+      ],
+      "price": 16000,
+      "summary": "Words cannot describe the beauty and serenity of Ladakh that the eyes can do.",
+      "description": "Tourism has won a wide recognition as an important industry in the district in view of its potential for creation of employment opportunities and generation of income on a large scale. This industry has a direct bearing on the socio-economic scene of the district. Tourism industry provides employment to a large number of people engaged in the related sectors like transport, Hotels and catering service, cottage industry etc. Tourism promotes economic activities in the remote areas.  Since its opening for the tourist (1974), Leh has registered an increasing number of tourists attracted towards it, because of its landscape, culture, tradition environment etc. and still has much potential for adventure tourism.  Leh figures on the international tourist map and attracts a large inflow of tourists both from home and abroad. The economy of the region is therefore, based on tourism. That is why Leh is abounds in Hotels, guest houses and taxis. There are 250 hotels, guest house of different classes in Leh.  Hemis, Alchi, Lamayuru, Shey and Thiksay are some of the most popular monasteries of Ladakh which attract both domestic as well as foreign tourist.Pangong lake(Half in China) and world highest motorable road Khardongla (18350 fts) is main attraction for domestic tourist, and monasteries and mountains are for foreign tourist.",
+      "imageCover": "tour-1-cover.jpg",
+      "locations": [
+        {
+          "_id": "5c88fa8cf4afda39709c2954",
+          "description": "Thiksey",
+          "type": "Point",
+          "coordinates": [
+            34.0461228,
+            77.6544892
+          ],
+          "day": 1
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2953",
+          "description": "Pangong Lake",
+          "type": "Point",
+          "coordinates": [
+            33.8217523,
+            78.4434007
+          ],
+          "day": 2
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2952",
+          "description": "Khardungla Pass",
+          "type": "Point",
+          "coordinates": [
+            34.2787342,
+            77.602381
+          ],
+          "day": 3
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2952",
+          "description": " Nubra Valley",
+          "type": "Point",
+          "coordinates": [
+            34.6863138,
+            77.5585332
+          ],
+          "day": 4
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c2952",
+          "description": "Magnetic Hill",
+          "type": "Point",
+          "coordinates": [
+            34.1762932,
+            77.3507667
+          ],
+          "day": 5
+        }
+      ]
+    },
+    {
+      "startLocation": {
+        "description": "Udaipur",
+        "type": "Point",
+        "coordinates": [
+          28.569731598520555,
+          77.09888657187365
+        ],
+        "address": "Udaipur"
+      },
+      "ratingsAverage": 4.5,
+      "ratingsQuantity": 6,
+      "images": [
+        "shimlamanali1.jpg",
+        "shimlamanali2.jpg",
+        "shimlamanali3.jpg"
+      ],
+      "startDates": [
+        "2022-05-01T10:00:00.000Z",
+        "2022-02-12T10:00:00.000Z",
+        "2023-01-06T10:00:00.000Z"
+      ],
+      "name": "Udaipur & Kumbhalgarh ",
+      "duration": 3,
+      "maxGroupSize": 10,
+      "difficulty": "medium",
+      "guides": [
+        "5c8a21d02f8fb814b56fa189",
+        "5c8a23412f8fb814b56fa18c",
+        "5c8a1f4e2f8fb814b56fa185"
+      ],
+      "price": 10000,
+      "summary": "Jewels of Mewar",
+      "description": "If you are looking for a memorable Udaipur trip, PlanMyTrip holiday packages are the right choice for you. PlanMyTrip offers the widest range of customizable tour to suit every kind of traveler. Be it a short trip or a long itinerary, a relaxing stay or an adventure holiday, whatever your travel preference, PlanMyTrip has the right Mewar vacation tours for you to choose from.",
+      "imageCover": "Udaipurcover.jpg",
+      "locations": [
+        {
+          "_id": "5c88fa8cf4afda39709c295c",
+          "description": "Arrive at Udaipur and sightseeing in & around Udaipur",
+          "type": "Point",
+          "coordinates": [
+            24.926804057955646,
+            73.74530032838786
+          ],
+          "day": 1
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Arrive Kumbalgarh and visit to kumbhalgarh fort.",
+          "type": "Point",
+          "coordinates": [
+            25.149858809035976,
+            73.5836791799198
+          ],
+          "day": 2
+        },
+        {
+          "_id": "5c88fa8cf4afda39709c295b",
+          "description": "Return Udaipur",
+          "type": "Point",
+          "coordinates": [
+            24.926804057955646,
+            73.74530032838786
+          ],
+          "day": 3
+        }
+      ]
+    }
+  ]
+}
