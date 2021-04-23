@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ImLocation } from 'react-icons/im';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { bookTour } from "./Stripe";
 
-<script src="https://js.stripe.com/v3/"></script>
-
 function TripDetail(props) {
   let history = useHistory();
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   var textToShow = "";
   if (localStorage.getItem("userInfo") !== null) {
     textToShow = "Book tour now!";
@@ -24,12 +23,12 @@ function TripDetail(props) {
     }
   }
   
-  // function filterByValue(array, value) { return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value) !== -1); }
-  // const filteredTrip = filterByValue(props.trips, props.id) ;
-  // const filteredReviews = filterByValue(props.reviews, props.id);
+  function filterByValue(array, value) { return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value) !== -1); }
+  const filteredTrip = filterByValue(props.trips, props.id) ;
+  const filteredReviews = filterByValue(props.reviews, props.id);
 
   var reviewsList = [];
-  if (props.filteredReviews.length === 0) {
+  if (filteredReviews.length === 0) {
     reviewsList.push({
       id: 0,
       name: "",
@@ -38,12 +37,12 @@ function TripDetail(props) {
     });
   }
 
-  for (var i = 0; i < props.filteredReviews.length; i++) {
+  for (var i = 0; i < filteredReviews.length; i++) {
     reviewsList.push({
       id: i,
-      name: props.filteredReviews[i].user.name,
-      rating: props.filteredReviews[i].rating,
-      review: props.filteredReviews[i].review
+      name: filteredReviews[i].user.name,
+      rating: filteredReviews[i].rating,
+      review: filteredReviews[i].review
     });
   }
 
@@ -62,7 +61,7 @@ function TripDetail(props) {
 
   return (
     <React.Fragment>
-      {props.filteredTrip.map((trip) => {
+      {filteredTrip.map((trip) => {
         var currentRatings = [];
         var currentRatingsNum = parseInt(currentReview.rating);
         for (var i = 0; i < currentRatingsNum; i++) { currentRatings.push("1"); }

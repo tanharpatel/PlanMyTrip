@@ -13,6 +13,7 @@ import UserProfile from './Components/UserProfile';
 import NewReview from './Components/NewReview';
 import Contact from './Components/Contact';
 import About from './Components/About';
+import Success from './Components/Success';
 import Error from './Components/Error';
 import { PopupboxManager } from 'react-popupbox';
 import "react-popupbox/dist/react-popupbox.css"
@@ -30,10 +31,9 @@ class App extends Component {
     trips: [],
     reviews: [],
     users: [],
+    bookings: [],
     isTOpen: false,
     isROpen: false,
-    // filteredTrip: [],
-    // filteredReviews: []
   };
 
   componentDidMount() {
@@ -68,6 +68,15 @@ class App extends Component {
       }).catch((error) => {
         this.setState({ hasData: false });
       });
+    
+    //fetches booking details
+    axios.get('http://localhost:5000/api/v1/bookings')
+      .then((response) => {
+        this.setState({ bookings: response.data.data.bookings });
+        this.setState({ hasData: true });
+      }).catch((error) => {
+        this.setState({ hasData: false });
+      });
 
     //checks if user is loggedin or not
     if (!localStorage.getItem('userInfo')) {
@@ -92,8 +101,6 @@ class App extends Component {
   filterByValue(array, value) { return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value) !== -1); }
 
   render() {
-    const filteredTrip = this.filterByValue(this.state.trips, this.state.id);
-    const filteredReviews = this.filterByValue(this.state.reviews, this.state.id);
     return (
       <Fragment>
         <Header isLoggedin={this.state.isLoggedin}></Header>
@@ -125,16 +132,15 @@ class App extends Component {
             </Route>
 
             <Route path="/tripdetail" exact>
-              <TripDetail filteredTrip={filteredTrip} filteredReviews={filteredReviews} id={this.state.id} />
-              {/* <TripDetail filteredTrip={this.state.filteredTrip} filteredReviews={this.state.filteredReviews} trips={this.state.trips} reviews={this.state.reviews} id={this.state.id} /> */}
+              <TripDetail trips={this.state.trips} reviews={this.state.reviews} id={this.state.id} />
             </Route>
 
             <Route path="/userprofile" exact>
-              <UserProfile trips={this.state.trips} users={this.state.users} reviews={this.state.reviews} openPopupbox={this.openPopupbox} />
+              <UserProfile trips={this.state.trips} users={this.state.users} reviews={this.state.reviews} bookings={this.state.bookings} openPopupbox={this.openPopupbox} />
             </Route>
 
             <Route path="/newReview" exact>
-              <NewReview trips={this.state.trips} openPopupbox={this.openPopupbox} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} />
+              <NewReview bookings={this.state.bookings} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} />
             </Route>
 
             <Route path="/about" exact>
@@ -150,15 +156,7 @@ class App extends Component {
             </Route>
 
             <Route path="/success" exact>
-              <>
-                <Lottie options={{
-                  loop: true, autoplay: true, animationData: successIcon.default,
-                  rendererSettings: { preserveAspectRatio: "xMidYMid slice" }
-                }} height="30vh" width="50vh" />
-                <h1 style={{ color: "#70C645", textAlign: "center" }}>Payment Successfull!</h1>
-                <br /> <br />
-                <Link to="/" className="btn btn--blue" style={{ display: "flex", justifyContent: "center", margin: "0 40%" }}>Go to HomePage</Link>
-              </>
+              <Success />
             </Route>
 
             <Route path="/failed" exact>

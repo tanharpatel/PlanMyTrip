@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, Link } from 'react-router-dom';
 import { PopupboxContainer } from 'react-popupbox';
 
 export default function UserProfile(props) {
   let history = useHistory();
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   var data = JSON.parse(localStorage.getItem("userInfo"));
   function filterByValue(array, value) {
     return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value.toLowerCase()) !== -1);
   }
   const filteredReview = filterByValue(props.reviews, data._id);
- 
+  const filteredBooking = filterByValue(props.bookings, data._id);
+  const myProfile = filterByValue(props.users, data._id);
+  var role = myProfile[0].role;
+  // var [role, setRole] = useState("");
+  // setRole({
+  //   role: myProfile[0].role
+  // });
+  // const role = useMemo(() => myProfile[0].role)
+  // console.log(role)
+
   var [isActive, setActive] = useState("");
-  var [isSelected] = useState({ isProfile: true, isBooking: false, isReviews: false, isBilling: false, isMTours: false, isMUsers: false, isMReviews: false });
+  var [isSelected] = useState({ isProfile: true, isBooking: false, isReviews: false, isBilling: false, isMTours: false, isMUsers: false, isMReviews: false, isMBookings: false });
   var [input, setInput] = useState({ passwordCurrent: "", password: "", passwordConfirm: "", review: "", name: "", email: "" });
   var [image, setImage] = useState({ preview: "", raw: "", hasImage: false, src: "default.jpg" });
 
@@ -220,36 +230,38 @@ export default function UserProfile(props) {
             My reviews
           </Link>
         </li>
-        <li className={isSelected.isBilling ? "side-nav--active" : ""}>
-          <Link to="#" onClick={onClick("isBilling")}>
-            <svg> <use href="./icons.svg#icon-credit-card" /> </svg>
-            Billing
-          </Link>
-        </li>
       </ul>
-      <div className="admin-nav">
-        <h5 className="admin-nav__heading">Admin</h5>
-        <ul className="side-nav">
-          <li className={isSelected.isMTours ? "side-nav--active" : ""}>
-            <Link to="#" onClick={onClick("isMTours")}>
-              <svg> <use href="./icons.svg#icon-map" /> </svg>
+      {role === "admin"
+        ? <div className="admin-nav">
+          <h5 className="admin-nav__heading">Admin</h5>
+          <ul className="side-nav">
+            <li className={isSelected.isMTours ? "side-nav--active" : ""}>
+              <Link to="#" onClick={onClick("isMTours")}>
+                <svg> <use href="./icons.svg#icon-map" /> </svg>
               Manage tours
             </Link>
-          </li>
-          <li className={isSelected.isMUsers ? "side-nav--active" : ""}>
-            <Link to="#" onClick={onClick("isMUsers")}>
-              <svg> <use href="./icons.svg#icon-users" /> </svg>
+            </li>
+            <li className={isSelected.isMUsers ? "side-nav--active" : ""}>
+              <Link to="#" onClick={onClick("isMUsers")}>
+                <svg> <use href="./icons.svg#icon-users" /> </svg>
               Manage users
             </Link>
-          </li>
-          <li className={isSelected.isMReviews ? "side-nav--active" : ""}>
-            <Link to="#" onClick={onClick("isMReviews")}>
-              <svg> <use href="./icons.svg#icon-star" /> </svg>
+            </li>
+            <li className={isSelected.isMReviews ? "side-nav--active" : ""}>
+              <Link to="#" onClick={onClick("isMReviews")}>
+                <svg> <use href="./icons.svg#icon-star" /> </svg>
               Manage reviews
             </Link>
-          </li>
-        </ul>
-      </div>
+            </li>
+            <li className={isSelected.isMBookings ? "side-nav--active" : ""}>
+              <Link to="#" onClick={onClick("isMBookings")}>
+                <svg> <use href="./icons.svg#icon-briefcase" /> </svg>
+              Manage Bookings
+            </Link>
+            </li>
+          </ul>
+        </div>
+        : <></>}
     </nav>
     <div className="user-view__content">
       {(() => {
@@ -258,8 +270,26 @@ export default function UserProfile(props) {
             return (
               <div className="user-view__form-container">
                 <h2 className="heading-secondary ma-bt-md">Your bookings</h2>
-                <Link to="/newReview"
-                  className="btn btn--small"
+                <div>
+                  {filteredBooking.map((booking) => (
+                    <div>
+                      <div className="bookings__card">
+                        <h5 className="reviews__user">{booking.tour.name}</h5>
+                        <h6 className="reviews__text">
+                          <span className="card__footer-text">For &nbsp;</span>
+                          <span className="card__footer-value">&#8377;{booking.price} </span>
+                        </h6>
+                        <h1 className="card__footer-value" style={{ color: booking.paid ? "#70C645" : "#D22E2E" }}>{booking.paid ? "PAID" : "UNPAID"}</h1>
+                      </div>
+                      <br />
+                    </div>
+                  ))}
+                </div>
+                <br /> <br /> <br />
+                <Link
+                  to="/newReview"
+                  className="btn btn--blue"
+                  style={{ float: "right" }}
                   type="submit"
                 >Add review</Link>
                 <PopupboxContainer {...{ titleBar: { enable: true, text: "Review Alert" } }} />
@@ -290,13 +320,6 @@ export default function UserProfile(props) {
                     </div>
                   ))}
                 </div>
-              </div>
-            )
-          case "isBilling":
-            return (
-              <div className="user-view__form-container">
-                <h2 className="heading-secondary ma-bt-md">Billing Area</h2>
-
               </div>
             )
           case "isMTours":
@@ -384,6 +407,31 @@ export default function UserProfile(props) {
                 </div>
               </div>
             )
+          case "isMBookings":
+            return (
+              <div className="user-view__form-container">
+                <h2 className="heading-secondary ma-bt-md">Manage Bookings</h2>
+                <div>
+                  {props.bookings.map((booking) => (
+                    <div>
+                      <div className="bookings__card">
+                        <h5 className="reviews__user">{booking.tour.name}</h5>
+                        <h6 className="reviews__text">
+                          <span className="card__footer-text">Booked By &nbsp;</span>
+                          <span className="card__footer-value">{booking.user.name} </span>
+                        </h6>
+                        <h6 className="reviews__text">
+                          <span className="card__footer-text">For &nbsp;</span>
+                          <span className="card__footer-value">&#8377;{booking.price} </span>
+                        </h6>
+                        <h1 className="card__footer-value" style={{ color: booking.paid ? "#70C645" : "#D22E2E" }}>{booking.paid ? "PAID" : "UNPAID"}</h1>
+                      </div>
+                      <br />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
           default:
             return (
               <div>
@@ -425,11 +473,11 @@ export default function UserProfile(props) {
                         <h5 className="text-center" style={{ cursor: "pointer" }} >Upload new photo</h5>
                       </label>
                       <input type="file" id="photo" name="photo" style={{ display: "none" }} onChange={uploadImage} />
-                      <Link
+                      <button
                         className="btn-text"
                         type="submit"
                         onClick={updateImage}
-                      >Update Image</Link>
+                      >Update Image</button>
                     </div>
                     <br /> <br />
                     <div className="form__group right">

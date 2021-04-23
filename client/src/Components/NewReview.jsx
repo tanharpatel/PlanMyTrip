@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { PopupboxContainer } from "react-popupbox";
 
 export default function NewReview(props) {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   var data = JSON.parse(localStorage.getItem("userInfo"));
   const config = { headers: { "content-type": "application/json", Authorization: `Bearer ${data.token}` } }
   const [select, setSelected] = useState({
@@ -11,6 +12,18 @@ export default function NewReview(props) {
     selectedRating: "",
     selectedStar: "",
   });
+
+  function filterByValue(array, value) { return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value.toLowerCase()) !== -1); }
+  const filteredBooking = filterByValue(props.bookings, data._id);
+
+  var newTrips = [filteredBooking];
+  var tripsToShow = [];
+  for (var i = 0; i < newTrips[0].length; i++) {
+    tripsToShow.push({
+      name: newTrips[0][i].tour.name,
+      id: newTrips[0][i].tour.id
+    });
+  }
 
   const [input, setInput] = useState({ review: "" });
   var ratings = ["Horrible", "Bad", "Neutral", "Good", "Excellent"];
@@ -74,7 +87,7 @@ export default function NewReview(props) {
         {props.isTOpen ? (
           <div className="dd">
             <ul className="ddul" ref={props.dropdown}>
-              {props.trips.map((trip) => (
+              {tripsToShow.map((trip) => (
                 <li className="ddli" onClick={selectTour(trip.id, trip.name)}>{trip.name}</li>
               ))}
             </ul>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
-  useEffect(() => { window.scrollTo(0, 0); });
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   let history = useHistory();
   const [input, setInput] = useState({ email: "", password: "" })
