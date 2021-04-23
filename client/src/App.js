@@ -13,7 +13,7 @@ import UserProfile from './Components/UserProfile';
 import NewReview from './Components/NewReview';
 import Contact from './Components/Contact';
 import About from './Components/About';
-import Success from './Components/Success';
+import ConfirmBooking from './Components/ConfirmBooking';
 import Error from './Components/Error';
 import { PopupboxManager } from 'react-popupbox';
 import "react-popupbox/dist/react-popupbox.css"
@@ -68,7 +68,7 @@ class App extends Component {
       }).catch((error) => {
         this.setState({ hasData: false });
       });
-    
+
     //fetches booking details
     axios.get('http://localhost:5000/api/v1/bookings')
       .then((response) => {
@@ -143,6 +143,10 @@ class App extends Component {
               <NewReview bookings={this.state.bookings} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} />
             </Route>
 
+            <Route path="/confirm" exact>
+              <ConfirmBooking />
+            </Route>
+            
             <Route path="/about" exact>
               <About />
             </Route>
@@ -156,7 +160,15 @@ class App extends Component {
             </Route>
 
             <Route path="/success" exact>
-              <Success />
+              <>
+                <Lottie options={{
+                  loop: true, autoplay: true, animationData: successIcon.default,
+                  rendererSettings: { preserveAspectRatio: "xMidYMid slice" }
+                }} height="30vh" width="50vh" />
+                <h1 style={{ color: "#70C645", textAlign: "center" }}>Payment Successfull!</h1>
+                <br /> <br />
+                <Link to="/" className="btn btn--blue" style={{ display: "flex", justifyContent: "center", margin: "0 40%" }}>Go to HomePage</Link>
+              </>
             </Route>
 
             <Route path="/failed" exact>
