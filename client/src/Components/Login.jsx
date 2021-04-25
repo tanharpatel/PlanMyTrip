@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Login(props) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -84,6 +84,11 @@ export default function Login(props) {
             required="required"
             type="password"
           />
+          <Link to="/enterEmail"
+            className="btn-text"
+            style={{ float: "right", color: "#0000ff" }}
+            type="submit"
+          ><strong>Forgot Password?</strong></Link>
         </div>
         <div className="form__group">
           <button

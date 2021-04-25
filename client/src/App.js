@@ -20,6 +20,8 @@ import "react-popupbox/dist/react-popupbox.css"
 import * as loadingIcon from "./loading.json";
 import * as successIcon from "./success.json";
 import * as failedIcon from "./failed.json";
+import ResetPassword from './Components/ResetPassword';
+import EnterEmail from './Components/EnterEmail';
 
 class App extends Component {
 
@@ -157,6 +159,14 @@ class App extends Component {
 
             <Route path="/error" exact>
               <Error />
+            </Route>
+            
+            <Route path="/enterEmail" exact>
+              <EnterEmail />
+            </Route>
+            
+            <Route path="/resetPassword/:token" exact>
+              <ResetPassword />
             </Route>
 
             <Route path="/success" exact>
