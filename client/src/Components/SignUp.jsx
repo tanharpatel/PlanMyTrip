@@ -50,6 +50,7 @@ export default function SignUp(props) {
             token: user.data.token,
           };
           localStorage.setItem("userInfo", JSON.stringify(userInfo));
+          localStorage.setItem("role", JSON.stringify("user"));
           history.push("/");
           window.location.reload();
         } else {

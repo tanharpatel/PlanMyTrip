@@ -22,8 +22,10 @@ export default function ConfirmBooking() {
     };
     try {
       await axios.post("http://localhost:5000/api/v1/bookings", newBooking, config);
+      window.location.reload();
       history.push("/success");
     } catch (error) {
+      window.location.reload();
       history.push("/failed");
     }
   }

@@ -7,20 +7,10 @@ export default function UserProfile(props) {
   let history = useHistory();
   useEffect(() => { window.scrollTo(0, 0); }, []);
   var data = JSON.parse(localStorage.getItem("userInfo"));
-  function filterByValue(array, value) {
-    return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value.toLowerCase()) !== -1);
-  }
-  const filteredReview = filterByValue(props.reviews, data._id);
-  const filteredBooking = filterByValue(props.bookings, data._id);
-  const myProfile = filterByValue(props.users, data._id);
-  var role = myProfile[0].role;
-  // var [role, setRole] = useState("");
-  // setRole({
-  //   role: myProfile[0].role
-  // });
-  // const role = useMemo(() => myProfile[0].role)
-  // console.log(role)
-
+  var role = JSON.parse(localStorage.getItem("role"));
+  const filteredReview = props.filterByValue(props.reviews, data._id);
+  const filteredBooking = props.filterByValue(props.bookings, data._id);
+  
   var [isActive, setActive] = useState("");
   var [isSelected] = useState({ isProfile: true, isBooking: false, isReviews: false, isBilling: false, isMTours: false, isMUsers: false, isMReviews: false, isMBookings: false });
   var [input, setInput] = useState({ passwordCurrent: "", password: "", passwordConfirm: "", review: "", name: "", email: "" });
@@ -477,7 +467,8 @@ export default function UserProfile(props) {
                         className="btn-text"
                         type="submit"
                         onClick={updateImage}
-                      >Update Image</button>
+                        style={{ color: "#0000ff", marginLeft: "2rem", border: "none", outline: "none", cursor: "pointer" }}
+                      ><strong>Update Image</strong></button>
                     </div>
                     <br /> <br />
                     <div className="form__group right">

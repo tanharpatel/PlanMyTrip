@@ -5,8 +5,10 @@ import axios from "axios";
 import './App.css';
 import Header from './Components/Header';
 import Login from './Components/Login';
+import AdminLogin from './Components/AdminLogin';
 import SignUp from './Components/SignUp';
 import Tours from './Components/Tours';
+import AddTour from './Components/AddTour';
 import TripDetail from './Components/TripDetail';
 import Footer from './Components/Footer';
 import UserProfile from './Components/UserProfile';
@@ -48,8 +50,7 @@ class App extends Component {
       .then((response) => {
         this.setState({ trips: response.data.data.tours });
         this.setState({ hasData: true });
-      }).catch((error) => {
-        console.log("Not able to fetch tours...");
+      }).catch(() => {
         this.setState({ hasData: false });
       });
 
@@ -58,7 +59,7 @@ class App extends Component {
       .then((response) => {
         this.setState({ reviews: response.data.data.reviews });
         this.setState({ hasData: true });
-      }).catch((error) => {
+      }).catch(() => {
         this.setState({ hasData: false });
       });
 
@@ -67,7 +68,7 @@ class App extends Component {
       .then((response) => {
         this.setState({ users: response.data.data.users });
         this.setState({ hasData: true });
-      }).catch((error) => {
+      }).catch(() => {
         this.setState({ hasData: false });
       });
 
@@ -76,7 +77,7 @@ class App extends Component {
       .then((response) => {
         this.setState({ bookings: response.data.data.bookings });
         this.setState({ hasData: true });
-      }).catch((error) => {
+      }).catch(() => {
         this.setState({ hasData: false });
       });
 
@@ -95,7 +96,7 @@ class App extends Component {
   }
 
   dropdown = React.createRef();
-  sendID = (tripId) => { this.setState({ id: tripId }); }
+  sendID = (tripId) => { this.setState({ id: tripId }); localStorage.setItem("trip", JSON.stringify(tripId)); }
   toogleDropDownT = () => { this.setState({ isTOpen: !this.state.isTOpen }); this.setState({ isROpen: false }); }
   toogleDropDownR = () => { this.setState({ isROpen: !this.state.isROpen }); this.setState({ isTOpen: false }); }
   openPopupbox = (content) => { PopupboxManager.open({ content }); }
@@ -126,7 +127,11 @@ class App extends Component {
             </Route>
 
             <Route path="/login" exact>
-              <Login openPopupbox={this.openPopupbox} />
+              <Login openPopupbox={this.openPopupbox} users={this.state.users} filterByValue={this.filterByValue} />
+            </Route>
+
+            <Route path="/adminlogin" exact>
+              <AdminLogin openPopupbox={this.openPopupbox} users={this.state.users} filterByValue={this.filterByValue} />
             </Route>
 
             <Route path="/signup" exact>
@@ -134,16 +139,20 @@ class App extends Component {
             </Route>
 
             <Route path="/tripdetail" exact>
-              <TripDetail trips={this.state.trips} reviews={this.state.reviews} id={this.state.id} />
+              <TripDetail trips={this.state.trips} reviews={this.state.reviews} id={this.state.id} filterByValue={this.filterByValue} />
             </Route>
 
             <Route path="/userprofile" exact>
-              <UserProfile trips={this.state.trips} users={this.state.users} reviews={this.state.reviews} bookings={this.state.bookings} openPopupbox={this.openPopupbox} />
+              <UserProfile trips={this.state.trips} users={this.state.users} reviews={this.state.reviews} bookings={this.state.bookings} filterByValue={this.filterByValue} openPopupbox={this.openPopupbox} />
             </Route>
 
             <Route path="/newReview" exact>
-              <NewReview bookings={this.state.bookings} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} />
+              <NewReview bookings={this.state.bookings} filterByValue={this.filterByValue} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} />
             </Route>
+
+            <Route path="/addTour" exact>
+              <AddTour />
+            </Route>            
 
             <Route path="/confirm" exact>
               <ConfirmBooking />
@@ -162,11 +171,11 @@ class App extends Component {
             </Route>
             
             <Route path="/enterEmail" exact>
-              <EnterEmail />
+              <EnterEmail openPopupbox={this.openPopupbox} />
             </Route>
             
             <Route path="/resetPassword/:token" exact>
-              <ResetPassword />
+              <ResetPassword openPopupbox={this.openPopupbox} />
             </Route>
 
             <Route path="/success" exact>

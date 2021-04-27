@@ -7,25 +7,33 @@ import { bookTour } from "./Stripe";
 function TripDetail(props) {
   let history = useHistory();
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  var role = JSON.parse(localStorage.getItem("role"));
   var textToShow = "";
   if (localStorage.getItem("userInfo") !== null) {
-    textToShow = "Book tour now!";
+    if (role === "admin") {
+      textToShow = "Edit Tour now!";
+    } else {
+      textToShow = "Book Tour now!";
+    }
   } else {
-    textToShow = "Login to Book tour now!"
+    textToShow = "Login to Book tour!"
   }
-  
+
   const onClickBook = () => {
     if (localStorage.getItem("userInfo") !== null) {
-      bookTour(props.id);
-      console.log("clicked");
+      if (role === "admin") {
+        //edit tour
+      } else {
+        bookTour(props.id);
+      }
     } else {
       history.push('/login');
     }
   }
-  
-  function filterByValue(array, value) { return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value) !== -1); }
-  const filteredTrip = filterByValue(props.trips, props.id) ;
-  const filteredReviews = filterByValue(props.reviews, props.id);
+
+  const tripId = localStorage.getItem("trip");
+  const filteredTrip = props.filterByValue(props.trips, tripId);
+  const filteredReviews = props.filterByValue(props.reviews, tripId);
 
   var reviewsList = [];
   if (filteredReviews.length === 0) {
@@ -133,7 +141,7 @@ function TripDetail(props) {
               <div id="map">
                 <Map
                   google={props.google}
-                  zoom={8}
+                  zoom={5}
                   style={{ width: '100%', height: '100%' }}
                   initialCenter={{ lat: trip.locations[0].coordinates[0], lng: trip.locations[0].coordinates[1] }} >
                   {trip.locations.map((location, index) => {

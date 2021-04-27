@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 
-export default function Login(props) {
+export default function AdminLogin(props) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   let history = useHistory();
@@ -29,7 +29,7 @@ export default function Login(props) {
       alert("No field can be empty!!!")
     } else {
       const filteredUser = props.filterByValue(props.users, input.email);
-      if (filteredUser[0].role === "user") {
+      if(filteredUser[0].role === "admin") {
         try {
           const user = await axios.post("http://localhost:5000/api/v1/users/login", data);
           if (user.data) {
@@ -41,7 +41,7 @@ export default function Login(props) {
               token: user.data.token,
             };
             localStorage.setItem("userInfo", JSON.stringify(userInfo));
-            localStorage.setItem("role", JSON.stringify("user"));
+            localStorage.setItem("role", JSON.stringify("admin"));
             history.push("/");
             window.location.reload();
           } else {
@@ -51,14 +51,14 @@ export default function Login(props) {
           props.openPopupbox("Something went wrong... Please try again later!");
         }
       } else {
-        console.log("You are not user.");
+        console.log("You are not admin.");
       }
     }
   };
 
   return (
     <div className="login-form content">
-      <h2 className="heading-secondary ma-bt-lg">Log into your account</h2>
+      <h2 className="heading-secondary ma-bt-lg">Login as admin</h2>
       <form className="form">
         <div className="form__group">
           <label className="form__label" htmlFor="email">
@@ -103,11 +103,11 @@ export default function Login(props) {
             onClick={(event) => loginFunc(event)}>
             Login
           </button>
-          <Link to="/adminlogin"
+          <Link to="/login"
             className="btn-text"
             style={{ color: "#0000ff", marginLeft: "2rem" }}
             type="submit"
-          ><strong>Are you ADMIN?</strong></Link>
+          ><strong>Are you USER?</strong></Link>
         </div>
       </form>
     </div>

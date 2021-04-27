@@ -13,9 +13,7 @@ export default function NewReview(props) {
     selectedStar: "",
   });
 
-  function filterByValue(array, value) { return array.filter((data) => JSON.stringify(data).toLowerCase().indexOf(value.toLowerCase()) !== -1); }
-  const filteredBooking = filterByValue(props.bookings, data._id);
-
+  const filteredBooking = props.filterByValue(props.bookings, data._id);
   var newTrips = [filteredBooking];
   var tripsToShow = [];
   for (var i = 0; i < newTrips[0].length; i++) {

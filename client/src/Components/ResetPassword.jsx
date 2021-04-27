@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
-export default function ResetPassword({match}) {
+export default function ResetPassword(props) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  // let history = useHistory();
+  let history = useHistory();
   const token = (useLocation().pathname.substring(useLocation().pathname.lastIndexOf('/') + 1));
   const [input, setInput] = useState({
     password: "",
@@ -38,12 +38,11 @@ export default function ResetPassword({match}) {
     } else {
       try {
         console.log(data);
-        await axios.post(`http://localhost:5000/api/v1/users/resetPassword/${token}`, data);
-        console.log("success");
-        // props.openPopupbox("Something went wrong... Please try again later!");
+        await axios.patch(`http://localhost:5000/api/v1/users/resetPassword/${token}`, data);
+        props.openPopupbox("Your password is successfully updated!");
+        history.push("/login");
       } catch (error) {
-        console.log(error.message);
-        // props.openPopupbox("Something went wrong... Please try again later!");
+        props.openPopupbox("Something went wrong... Please try again later!");
       }
     }
   }
