@@ -8,7 +8,7 @@ import Login from './Components/Login';
 import AdminLogin from './Components/AdminLogin';
 import SignUp from './Components/SignUp';
 import Tours from './Components/Tours';
-import AddTour from './Components/AddTour';
+import EditTour from './Components/EditTour';
 import TripDetail from './Components/TripDetail';
 import Footer from './Components/Footer';
 import UserProfile from './Components/UserProfile';
@@ -24,6 +24,7 @@ import * as successIcon from "./success.json";
 import * as failedIcon from "./failed.json";
 import ResetPassword from './Components/ResetPassword';
 import EnterEmail from './Components/EnterEmail';
+import VerifyEmail from './Components/VerifyEmail';
 
 class App extends Component {
 
@@ -150,14 +151,14 @@ class App extends Component {
               <NewReview bookings={this.state.bookings} filterByValue={this.filterByValue} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} />
             </Route>
 
-            <Route path="/addTour" exact>
-              <AddTour />
-            </Route>            
+            <Route path="/editTour" exact>
+              <EditTour openPopupbox={this.openPopupbox} />
+            </Route>
 
             <Route path="/confirm" exact>
               <ConfirmBooking />
             </Route>
-            
+
             <Route path="/about" exact>
               <About />
             </Route>
@@ -169,11 +170,15 @@ class App extends Component {
             <Route path="/error" exact>
               <Error />
             </Route>
-            
+
             <Route path="/enterEmail" exact>
               <EnterEmail openPopupbox={this.openPopupbox} />
             </Route>
-            
+
+            <Route path="/verifyEmail" exact>
+              <VerifyEmail openPopupbox={this.openPopupbox} />
+            </Route>
+
             <Route path="/resetPassword/:token" exact>
               <ResetPassword openPopupbox={this.openPopupbox} />
             </Route>

@@ -7,6 +7,7 @@ import { bookTour } from "./Stripe";
 function TripDetail(props) {
   let history = useHistory();
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const tripId = localStorage.getItem("trip");
   var role = JSON.parse(localStorage.getItem("role"));
   var textToShow = "";
   if (localStorage.getItem("userInfo") !== null) {
@@ -19,10 +20,17 @@ function TripDetail(props) {
     textToShow = "Login to Book tour!"
   }
 
-  const onClickBook = () => {
+  const editOrBook = (tourId, name, price, startDates) => {
     if (localStorage.getItem("userInfo") !== null) {
       if (role === "admin") {
-        //edit tour
+        const editTrip = {
+          id: tourId,
+          name: name,
+          price: price,
+          startDates: startDates,
+        };
+        localStorage.setItem("editTrip", JSON.stringify(editTrip));
+        history.push("/editTour");
       } else {
         bookTour(props.id);
       }
@@ -31,7 +39,6 @@ function TripDetail(props) {
     }
   }
 
-  const tripId = localStorage.getItem("trip");
   const filteredTrip = props.filterByValue(props.trips, tripId);
   const filteredReviews = props.filterByValue(props.reviews, tripId);
 
@@ -181,7 +188,7 @@ function TripDetail(props) {
                 <div className="cta__content">
                   <h2 className="heading-secondary">What are you waiting for?</h2>
                   <p className="cta__text">{trip.duration} days. 1 adventure. Infinite memories. Make it yours today!</p>
-                  <button className="btn btn--blue span-all-rows" onClick={onClickBook}>{textToShow}</button>
+                  <button className="btn btn--blue span-all-rows" onClick={() => editOrBook(trip.id, trip.name, trip.price, trip.startDates[0])}>{textToShow}</button>
                 </div>
               </div>
             </section>

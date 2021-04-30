@@ -34,8 +34,6 @@ router
     .route('/:id')
     .get(tourController.getTour)
     .patch(
-        tourController.uploadTourImages,
-        tourController.resizeTourImages,
         tourController.updateTour,
         )
     .delete(

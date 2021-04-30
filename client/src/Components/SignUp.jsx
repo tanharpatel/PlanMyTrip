@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
+import { PopupboxContainer } from 'react-popupbox';
 
 export default function SignUp(props) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -8,13 +9,13 @@ export default function SignUp(props) {
   let history = useHistory();
   const [input, setInput] = useState({
     name: "",
-    email: "",
     password: "",
     passwordConfirm: ""
   });
 
+  const email = JSON.parse(localStorage.getItem('email'));
   function handleChange(event) {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     setInput(prevInput => {
       return {
         ...prevInput,
@@ -27,17 +28,17 @@ export default function SignUp(props) {
     event.preventDefault();
     const data = {
       name: input.name,
-      email: input.email,
+      email: email,
       password: input.password,
       passwordConfirm: input.passwordConfirm
     };
 
-    if(input.name === "" || input.email === "" || input.password === "" || input.passwordConfirm === "") {
-      alert("No field can be empty!!!")
-    } else if(input.password !== input.passwordConfirm) {
-      alert("Password doesn't matches!!!")
-    } else if(input.password.length < 8) {
-      alert("Password must be of at least 8 characters!!!");
+    if (input.name === "" || input.password === "" || input.passwordConfirm === "") {
+      props.openPopupbox("No field can be empty!!!");
+    } else if (input.password !== input.passwordConfirm) {
+      props.openPopupbox("Password doesn't matches!!!");
+    } else if (input.password.length < 8) {
+      props.openPopupbox("Password must be of at least 8 characters!!!");
     } else {
       try {
         const user = await axios.post("http://localhost:5000/api/v1/users/signup", data);
@@ -51,13 +52,14 @@ export default function SignUp(props) {
           };
           localStorage.setItem("userInfo", JSON.stringify(userInfo));
           localStorage.setItem("role", JSON.stringify("user"));
+          localStorage.removeItem("email");
           history.push("/");
           window.location.reload();
         } else {
-          props.openPopupbox("Something went wrong... Please try again later!");
+          props.openPopupbox("Can't create your account at this time... Please try again later!");
         }
       } catch (error) {
-        props.openPopupbox("Something went wrong... Please try again later!");
+        props.openPopupbox("User with this email already exists.");
       }
     }
   }
@@ -85,13 +87,13 @@ export default function SignUp(props) {
             Email address
           </label>
           <input
+            disabled={true}
             className="form__input"
             id="email"
             placeholder="you@provider.com"
             required="required"
             type="email"
-            name="email"
-            onChange={handleChange}
+            value={email}
           />
         </div>
         <div className="form__group ma-bt-md">
@@ -131,6 +133,7 @@ export default function SignUp(props) {
             onClick={(event) => signUpFunc(event)}>
             Sign Up
           </button>
+          <PopupboxContainer />
         </div>
       </form>
     </div>

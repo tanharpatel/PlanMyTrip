@@ -196,6 +196,33 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     createSendToken(user, 200, res);
 });
 
+exports.verifyEmail = catchAsync(async (req, res, next) => {
+    //1) get user based on posted email
+    const user = await req.body.email;
+    if (!user) {
+        return next(new appError('Email can\'t be empty', 404));
+    }
+
+    //2) semd it to user's email
+    const resetURL = `http://localhost:3000/signup`;
+    const message = `Confirm that you are not robot and willing to signup in PlanMyTrip.com by clicking:
+    ${resetURL} \nIf you are already registered or haven't applied, please ignore this email!`;
+
+    try {
+        await sendEmail({
+            email: user,
+            subject: 'Your Email Verification (valid for 10 min)',
+            message
+        });
+        res.status(200).json({
+            status: 'success',
+            message: 'Token sent to email!'
+        })
+    } catch (err) {
+        console.log(err.message);
+        return next(new appError('There was an error sending an email. Try again later.', 500));
+    }
+});
 
 // const crypto = require('crypto');
 // const { promisify } = require('util');

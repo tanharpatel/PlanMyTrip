@@ -152,15 +152,15 @@ export default function UserProfile(props) {
     }
   }
 
-  const editTour = tourId => async (event) => {
-    event.preventDefault();
-    try {
-      // await axios.patch(`http://localhost:5000/api/v1/tours/${tourId}`, config);
-      props.openPopupbox("Tour Edited Successfully");
-      window.location.reload();
-    } catch (error) {
-      props.openPopupbox("Coming Soon!!!");
-    }
+  const editTour = (tourId, name, price, startDates) => {
+    const editTrip = {
+      id: tourId,
+      name: name,
+      price: price,
+      startDates: startDates,
+    };
+    localStorage.setItem("editTrip", JSON.stringify(editTrip));
+    history.push("/editTour");
   }
 
   const deleteTour = tourId => async (event) => {
@@ -330,7 +330,7 @@ export default function UserProfile(props) {
                         <button
                           className="btn"
                           type="submit"
-                          onClick={editTour()}
+                          onClick={() => editTour(trip.id, trip.name, trip.price, trip.startDates[0])}
                         >Edit</button>
                         <button
                           className="btn btn--small"

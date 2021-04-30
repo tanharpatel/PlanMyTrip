@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
+import { PopupboxContainer } from 'react-popupbox';
 
 export default function Login(props) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -26,7 +27,7 @@ export default function Login(props) {
     };
 
     if (input.email === "" || input.password === "") {
-      alert("No field can be empty!!!")
+      props.openPopupbox("No field can be empty!!!")
     } else {
       const filteredUser = props.filterByValue(props.users, input.email);
       if (filteredUser[0].role === "user") {
@@ -45,13 +46,13 @@ export default function Login(props) {
             history.push("/");
             window.location.reload();
           } else {
-            props.openPopupbox("Credentials are incorrect... Please verify and login again!");
           }
+          props.openPopupbox("Can't make you login now... Please try again later!");
         } catch (error) {
-          props.openPopupbox("Something went wrong... Please try again later!");
+          props.openPopupbox("Credentials are incorrect... Please verify and login again!");
         }
       } else {
-        console.log("You are not user.");
+        props.openPopupbox("You are admin. Login as admin!");
       }
     }
   };
@@ -103,6 +104,7 @@ export default function Login(props) {
             onClick={(event) => loginFunc(event)}>
             Login
           </button>
+          <PopupboxContainer />
           <Link to="/adminlogin"
             className="btn-text"
             style={{ color: "#0000ff", marginLeft: "2rem" }}

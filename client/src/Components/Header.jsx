@@ -7,6 +7,7 @@ export default function Header(props) {
   const logoutFunc = async () => {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("role");
+    localStorage.removeItem("trip");
     history.push("/");
     window.location.reload();
   };
@@ -29,7 +30,7 @@ export default function Header(props) {
         {props.isLoggedin ? (
           <Link to="/" className="nav__el nav__el--cta" onClick={(event) => logoutFunc(event)}>Logout</Link>
         ) : (
-          <Link to="/signup" className="nav__el nav__el--cta">Sign Up</Link>
+          <Link to="/verifyEmail" className="nav__el nav__el--cta">Sign Up</Link>
         )}
       </nav>
     </header>

@@ -1429,7 +1429,6 @@ body {
   padding: 1.25rem 1.75rem;
   border: none;
   width: 100%;
-  background-color: #fff;
   background-color: #f2f2f2;
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
@@ -1565,4 +1564,19 @@ body {
   color: #ffffff;
   cursor: pointer;
   font-size: 30;
+}
+
+.form-control {
+  position: relative;
+  z-index: 2;
+  background-color: #f2f2f2 !important;
+  border: none !important;
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.5rem;
+}
+
+.form-control:focus {
+  border: none !important;
+  outline: none !important;
 }
