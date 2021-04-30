@@ -10,7 +10,7 @@ export default function UserProfile(props) {
   var role = JSON.parse(localStorage.getItem("role"));
   const filteredReview = props.filterByValue(props.reviews, data._id);
   const filteredBooking = props.filterByValue(props.bookings, data._id);
-  
+
   var [isActive, setActive] = useState("");
   var [isSelected] = useState({ isProfile: true, isBooking: false, isReviews: false, isBilling: false, isMTours: false, isMUsers: false, isMReviews: false, isMBookings: false });
   var [input, setInput] = useState({ passwordCurrent: "", password: "", passwordConfirm: "", review: "", name: "", email: "" });
@@ -208,18 +208,23 @@ export default function UserProfile(props) {
             Settings
           </Link>
         </li>
-        <li className={isSelected["isBooking"] ? "side-nav--active" : ""}>
-          <Link to="#" onClick={onClick("isBooking")}>
-            <svg> <use href="./icons.svg#icon-briefcase" /> </svg>
+        {role === "user"
+          ? <>
+            <li className={isSelected["isBooking"] ? "side-nav--active" : ""}>
+              <Link to="#" onClick={onClick("isBooking")}>
+                <svg> <use href="./icons.svg#icon-briefcase" /> </svg>
             My bookings
           </Link>
-        </li>
-        <li className={isSelected.isReviews ? "side-nav--active" : ""}>
-          <Link to="#" onClick={onClick("isReviews")}>
-            <svg> <use href="./icons.svg#icon-star" /> </svg>
+            </li>
+            <li className={isSelected.isReviews ? "side-nav--active" : ""}>
+              <Link to="#" onClick={onClick("isReviews")}>
+                <svg> <use href="./icons.svg#icon-star" /> </svg>
             My reviews
           </Link>
-        </li>
+            </li>
+          </>
+          : <></>
+        }
       </ul>
       {role === "admin"
         ? <div className="admin-nav">
@@ -437,7 +442,6 @@ export default function UserProfile(props) {
                         name="name"
                         value={input.name}
                         placeholder={data.name}
-                        required="required"
                         type="text"
                       />
                     </div>
@@ -450,7 +454,6 @@ export default function UserProfile(props) {
                         name="email"
                         value={input.email}
                         placeholder={data.email}
-                        required="required"
                         type="text"
                       />
                     </div>
@@ -499,7 +502,6 @@ export default function UserProfile(props) {
                         name="passwordCurrent"
                         minLength="8"
                         placeholder="••••••••"
-                        required="required"
                         type="password"
                       />
                     </div>
@@ -512,7 +514,6 @@ export default function UserProfile(props) {
                         name="password"
                         minLength="8"
                         placeholder="••••••••"
-                        required="required"
                         type="password"
                       />
                     </div>
@@ -525,7 +526,6 @@ export default function UserProfile(props) {
                         name="passwordConfirm"
                         minLength="8"
                         placeholder="••••••••"
-                        required="required"
                         type="password"
                       />
                     </div>

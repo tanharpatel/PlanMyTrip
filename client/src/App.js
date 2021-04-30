@@ -23,7 +23,7 @@ import * as loadingIcon from "./loading.json";
 import * as successIcon from "./success.json";
 import * as failedIcon from "./failed.json";
 import ResetPassword from './Components/ResetPassword';
-import EnterEmail from './Components/EnterEmail';
+import ForgotPassword from './Components/ForgotPassword';
 import VerifyEmail from './Components/VerifyEmail';
 
 class App extends Component {
@@ -140,7 +140,7 @@ class App extends Component {
             </Route>
 
             <Route path="/tripdetail" exact>
-              <TripDetail trips={this.state.trips} reviews={this.state.reviews} id={this.state.id} filterByValue={this.filterByValue} />
+              <TripDetail trips={this.state.trips} reviews={this.state.reviews} id={this.state.id} filterByValue={this.filterByValue} openPopupbox={this.openPopupbox} />
             </Route>
 
             <Route path="/userprofile" exact>
@@ -155,7 +155,7 @@ class App extends Component {
               <EditTour openPopupbox={this.openPopupbox} />
             </Route>
 
-            <Route path="/confirm" exact>
+            <Route path="/confirm" >
               <ConfirmBooking />
             </Route>
 
@@ -171,15 +171,15 @@ class App extends Component {
               <Error />
             </Route>
 
-            <Route path="/enterEmail" exact>
-              <EnterEmail openPopupbox={this.openPopupbox} />
+            <Route path="/forgotPassword" >
+              <ForgotPassword openPopupbox={this.openPopupbox} />
             </Route>
 
             <Route path="/verifyEmail" exact>
               <VerifyEmail openPopupbox={this.openPopupbox} />
             </Route>
 
-            <Route path="/resetPassword/:token" exact>
+            <Route path="/resetPassword/:token" >
               <ResetPassword openPopupbox={this.openPopupbox} />
             </Route>
 

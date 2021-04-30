@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { ImLocation } from 'react-icons/im';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { bookTour } from "./Stripe";
+import { PopupboxContainer } from 'react-popupbox';
 
 function TripDetail(props) {
   let history = useHistory();
@@ -32,6 +33,7 @@ function TripDetail(props) {
         localStorage.setItem("editTrip", JSON.stringify(editTrip));
         history.push("/editTour");
       } else {
+        props.openPopupbox("Processing... Please wait a while!");
         bookTour(props.id);
       }
     } else {
@@ -189,6 +191,7 @@ function TripDetail(props) {
                   <h2 className="heading-secondary">What are you waiting for?</h2>
                   <p className="cta__text">{trip.duration} days. 1 adventure. Infinite memories. Make it yours today!</p>
                   <button className="btn btn--blue span-all-rows" onClick={() => editOrBook(trip.id, trip.name, trip.price, trip.startDates[0])}>{textToShow}</button>
+                  <PopupboxContainer />
                 </div>
               </div>
             </section>

@@ -20,6 +20,7 @@ export default function VerifyEmail(props) {
     if (input.email === "") {
       props.openPopupbox("Email can't be empty!");
     } else {
+      props.openPopupbox("Processing... Please wait a while!");
       try {
         const data = {
           email: input.email,

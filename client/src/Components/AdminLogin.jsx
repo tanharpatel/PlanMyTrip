@@ -91,7 +91,7 @@ export default function AdminLogin(props) {
             required="required"
             type="password"
           />
-          <Link to="/enterEmail"
+          <Link to="/forgotPassword"
             className="btn-text"
             style={{ float: "right", color: "#0000ff" }}
             type="submit"

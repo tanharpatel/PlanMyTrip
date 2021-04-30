@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { PopupboxContainer } from 'react-popupbox';
 
-export default function EnterEmail(props) {
+export default function ForgotPassword(props) {
   const [input, setInput] = useState({ email: "" })
 
   const handleChange = (event) => {
@@ -20,6 +20,7 @@ export default function EnterEmail(props) {
     if (input.email === "") {
       props.openPopupbox("Email can't be empty!");
     } else {
+      props.openPopupbox("Processing... Please wait a while!");
       try {
         const data = {
           email: input.email,
