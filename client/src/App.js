@@ -148,7 +148,7 @@ class App extends Component {
             </Route>
 
             <Route path="/newReview" exact>
-              <NewReview bookings={this.state.bookings} filterByValue={this.filterByValue} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} />
+              <NewReview bookings={this.state.bookings} filterByValue={this.filterByValue} toogleDropDownT={this.toogleDropDownT} toogleDropDownR={this.toogleDropDownR} isTOpen={this.state.isTOpen} isROpen={this.state.isROpen} dropdown={this.dropdown} openPopupbox={this.openPopupbox} />
             </Route>
 
             <Route path="/editTour" exact>

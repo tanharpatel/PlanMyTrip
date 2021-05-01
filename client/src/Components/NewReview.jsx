@@ -23,6 +23,17 @@ export default function NewReview(props) {
     });
   }
 
+  const getUnique = (arr, comp) => {
+    const unique = arr
+      .map(e => e[comp])
+      .map((e, i, final) => final.indexOf(e) === i && i)
+      .filter(e => arr[e])
+      .map(e => arr[e]);
+
+    return unique;
+  }
+
+  const uniqueTrips = getUnique(tripsToShow, "id");
   const [input, setInput] = useState({ review: "" });
   var ratings = ["Horrible", "Bad", "Neutral", "Good", "Excellent"];
 
@@ -85,7 +96,7 @@ export default function NewReview(props) {
         {props.isTOpen ? (
           <div className="dd">
             <ul className="ddul" ref={props.dropdown}>
-              {tripsToShow.map((trip) => (
+              {uniqueTrips.map((trip) => (
                 <li className="ddli" onClick={selectTour(trip.id, trip.name)}>{trip.name}</li>
               ))}
             </ul>

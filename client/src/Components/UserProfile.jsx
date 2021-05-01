@@ -13,7 +13,7 @@ export default function UserProfile(props) {
 
   var [isActive, setActive] = useState("");
   var [isSelected] = useState({ isProfile: true, isBooking: false, isReviews: false, isBilling: false, isMTours: false, isMUsers: false, isMReviews: false, isMBookings: false });
-  var [input, setInput] = useState({ passwordCurrent: "", password: "", passwordConfirm: "", review: "", name: "", email: "" });
+  var [input, setInput] = useState({ passwordCurrent: "", password: "", passwordConfirm: "", review: "", name: "" });
   var [image, setImage] = useState({ preview: "", raw: "", hasImage: false, src: "default.jpg" });
 
   const config = { headers: { "content-type": "application/json", Authorization: `Bearer ${data.token}` } }
@@ -73,10 +73,8 @@ export default function UserProfile(props) {
     } else {
       if (input.name === "") {
         newData = { name: data.name, email: input.email };
-      } else if (input.email === "") {
-        newData = { name: input.name, email: data.email };
       } else {
-        newData = { name: input.name, email: input.email };
+        newData = { name: input.name, email: data.email };
       }
       try {
         const newProfileData = await axios.patch("http://localhost:5000/api/v1/users/updateMe", newData, config);
@@ -134,7 +132,6 @@ export default function UserProfile(props) {
       await axios.delete("http://localhost:5000/api/v1/users/deleteMe", config);
       localStorage.removeItem("userInfo");
       props.openPopupbox("Profile Deleted Successfully");
-      window.location.reload();
       history.push("/");
     } catch (error) {
       props.openPopupbox("Error deleting your profile... Please try again later!");
@@ -448,12 +445,12 @@ export default function UserProfile(props) {
                     <div className="form__group ma-bt-md">
                       <label className="form__label" htmlFor="email">Email address</label>
                       <input
+                        disabled={true}
                         className="form__input"
                         id="email"
                         onChange={handleChange}
                         name="email"
-                        value={input.email}
-                        placeholder={data.email}
+                        value={data.email}
                         type="text"
                       />
                     </div>
