@@ -78,7 +78,6 @@ export default function NewReview(props) {
       tourName: select.selectedTour,
     };
     try {
-      console.log(newReview);
       await axios.post("http://localhost:5000/api/v1/reviews", newReview, config);
       props.openPopupbox("Review Added Successfully");
       window.location.reload();

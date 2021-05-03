@@ -9,13 +9,13 @@ router.post('/forgotPassword', authController.forgotPassword);
 router.post('/verifyEmail', authController.verifyEmail);
 router.patch('/resetPassword/:token', authController.resetPassword);
 router.patch(
-    '/updateMyPassword', 
-    authController.protect, 
+    '/updateMyPassword',
+    authController.protect,
     authController.updatePassword
 );
 
 router.patch(
-    '/updateMe', 
+    '/updateMe',
     authController.protect,
     userController.uploadUserPhoto,
     userController.resizeUserPhoto,
@@ -23,8 +23,8 @@ router.patch(
 );
 
 router.delete(
-    '/deleteMe', 
-    authController.protect, 
+    '/deleteMe',
+    authController.protect,
     userController.deleteMe
 );
 
@@ -46,7 +46,7 @@ router
     .get(userController.getUser)
     .patch(userController.updateUser)
     .delete(
-        authController.protect, 
+        authController.protect,
         authController.restrictTo('admin'),
         userController.deleteUser);
 

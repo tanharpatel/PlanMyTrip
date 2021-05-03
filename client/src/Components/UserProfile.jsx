@@ -47,7 +47,6 @@ export default function UserProfile(props) {
     event.preventDefault();
     const formData = new FormData();
     formData.append("photo", image.raw);
-    console.log(image.raw);
     try {
       await axios.patch("http://localhost:5000/api/v1/users/updateMe", formData, config);
       const userInfo = {
@@ -113,14 +112,12 @@ export default function UserProfile(props) {
       props.openPopupbox("Password must be of at least 8 characters!!!");
     } else {
       try {
-        console.log(newPass);
         await axios.patch("http://localhost:5000/api/v1/users/updateMyPassword", newPass, config);
         props.openPopupbox("Password updated Successfully. Login with new password.");
         localStorage.removeItem("userInfo");
         window.location.reload();
         history.push("/login");
       } catch (error) {
-        console.log(error.message);
         props.openPopupbox("Error updating your password... Please try again later!");
       }
     }

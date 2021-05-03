@@ -57,7 +57,6 @@ export default function EditTour(props) {
         newData = { price: input.price, startDates: newStartDate };
       }
       try {
-        console.log(newData);
         await axios.patch(`http://localhost:5000/api/v1/tours/${editTrip.id}`, newData, config);
         props.openPopupbox("Trip updated Successfully");
         localStorage.removeItem("editTrip");

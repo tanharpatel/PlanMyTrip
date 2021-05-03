@@ -14,7 +14,6 @@ export default function Tours(props) {
           <div className="card" key={trip.id}>
             <div className="card__header">
               <div className="card__picture">
-                {/* <div className="card__picture-overlay">&nbsp;</div> */}
                 <img src={`tour-${trip.id}-cover.jpg`} alt="" className="card__picture-img" />
               </div>
               <h3 className="heading-tertirary">

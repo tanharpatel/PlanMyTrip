@@ -37,7 +37,6 @@ export default function ResetPassword(props) {
       alert("Password must be of at least 8 characters!!!");
     } else {
       try {
-        console.log(data);
         await axios.patch(`http://localhost:5000/api/v1/users/resetPassword/${token}`, data);
         props.openPopupbox("Your password is successfully updated!");
         history.push("/login");
