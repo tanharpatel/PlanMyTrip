@@ -3,7 +3,6 @@ const Tour = require("./../model/tourModel");
 const APIFeatures = require('../utils/apiFeatures');
 const Booking = require('../model/bookingModel');
 const catchAsync = require("./../utils/catchAsync");
-const factory = require("./handlerFactory");
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // 1) Get the currently booked tour

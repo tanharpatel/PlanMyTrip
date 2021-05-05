@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Error() {
   return (
-    <main className="main">
+    <main className="main" style={{height: "45vh"}}>
       <div className="error">
         <div className="error__title">
           <h2 className="heading-secondary heading-secondary--error">Uh oh! Something went wrong!</h2>
